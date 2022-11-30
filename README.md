@@ -1,0 +1,1 @@
+Consumer example for [message queue](https://github.com/dnswd/elixir-queue) 
