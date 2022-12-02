@@ -2,6 +2,7 @@ from django.shortcuts import render
 from user.models import User
 
 
+@csrf_exempt
 def index(request):
     if request.method == "GET":
         return render(request, 'home/index.html')
