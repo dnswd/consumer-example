@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from user.models import User
+from django.views.decorators.csrf import csrf_exempt
 
 
 @csrf_exempt
