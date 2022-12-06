@@ -12,10 +12,9 @@ def index(request):
         data = json.loads(request.body)
         queue = data["queue"]
         consumer = {"consumer":data["consumer"]}
-        # response = req.post(queue, json=consumer)
-        response = "tes"
         callback = data["consumer"]["url_callback"]
-        user, is_create = User.objects.get_or_create(username=callback.split("/")[-1])
+        user, _ = User.objects.get_or_create(username=callback.split("/")[-1])
         user.save()
+        response = req.post(queue, json=consumer)
         print("Finished")
-        return JsonResponse(response, safe=False)
+        return JsonResponse(response.json(), safe=False)
