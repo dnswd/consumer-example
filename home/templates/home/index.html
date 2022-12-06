@@ -34,22 +34,14 @@
       <input type="submit" id="submit" value="Submit">
   </div>
 
-    {% if queue  %}
+    {% if consumer  %}
     <p>
-        Queue -> {{ queue }}
+        url_callback -> {{ consumer.url_callback }}
     </p>
-    {% endif %}
-
-    {% if callback  %}
     <p>
-        Callback -> {{ callback }}
+      topic -> {{ consumer.topic }}
     </p>
-    {% endif %}
-
-    {% if topic  %}
-    <p>
-        topic -> {{ topic }}
-    </p>
+    
     {% endif %}
 
   </div>

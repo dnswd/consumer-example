@@ -23,40 +23,19 @@ $(document).on('click', "#submit", function () {
     
     // Create a JSON object with the consumer information
     const json = {
-    consumer: consumer
+    consumer: consumer,
+    queue: queue
     };
     
     // Print the JSON object to the console
     console.log(json);
 
     let json_string = JSON.stringify(json);
-
     console.log(json_string);
     $.ajax({
         method: 'POST',
-        data: JSON.stringify({url_callback:url_callback}),
+        data: json_string,
         contentType: 'application/json',
-        success: function (data) {
-            console.log(data);
-            console.log("Success Local");
-        },
-        Error: function(data){
-            console.log("error");
-        },
-        fail: function(data){
-            console.log("fail");
-        },
-    });
-
-    $.ajax({
-        url: queue,
-        method: 'POST',
-        data: json,
-        crossOrigin: true,
-        contentType: 'application/json',
-        headers: {
-            'Access-Control-Allow-Origin': '*',
-          },
         success: function (data) {
             console.log(data);
             console.log("Success Consumer");
