@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,9 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
+  
+  
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="{% static 'home/js/home.js' %}"></script>
     <style>
       .home-height {
         min-height: calc(100vh - 56px);
@@ -21,16 +24,16 @@
 
 	
   <div class="home-height">
-    <form method="post">
-        {% csrf_token %}
-        <div class="buttons has-addons">
-            <label for="queue">Queue Url:</label>
-            <input type="text" id="queue" name="queue"><br><br>
-            <label for="callback">Url Callback:</label>
-            <input type="text" id="callback" name="callback"><br><br>
-            <input type="submit" value="Submit">
-        </div>
-    </form>
+  <div class="buttons has-addons">
+      <label for="queue">Queue Url:</label>
+      <input type="text" id="queue" name="queue"><br><br>
+      <label for="callback">Url Callback:</label>
+      <input type="text" id="callback" name="callback"><br><br>
+      <label for="topic">Topic:</label>
+      <input type="text" id="topic" name="topic"><br><br>
+      <input type="submit" id="submit" value="Submit">
+  </div>
+
     {% if queue  %}
     <p>
         Queue -> {{ queue }}
@@ -40,6 +43,12 @@
     {% if callback  %}
     <p>
         Callback -> {{ callback }}
+    </p>
+    {% endif %}
+
+    {% if topic  %}
+    <p>
+        topic -> {{ topic }}
     </p>
     {% endif %}
 
